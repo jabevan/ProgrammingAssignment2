@@ -74,4 +74,4 @@ cacheSolve <- function(x, ...) {
                 end <- Sys.time()     # stops the time clock.
                 message("Execution time is ", end - start, " seconds.")     # reports execustion time of calculating the invere of the matrix.
         }
-}
+} 

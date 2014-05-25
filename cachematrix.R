@@ -3,6 +3,11 @@
 ## or whether the inverse is being calculated.  It also reports the execution time 
 ## to illustrate the benefit in caching versus calcuating.
 
+## NOTE: I purposely did not print the results to the screen.  This excercise is meant
+## to illustrate the speed of caching versus calculating, and very large matrices are the
+## best means to illustrate that difference.  It is not feasible to print matrices with
+## more than a million entries to the screen.
+
 ## To test the functions in this script, please enter the following:
 ## > source("cachematrix.R")
 ## > a <- makeCacheMatrix(matrix(rnorm(1:1000000), 1000, 1000))
@@ -28,7 +33,7 @@ makeCacheMatrix <- function(x = matrix()) {
         m <- NULL     # m is the variable for the cache, originally NULL.
         
         set <- function(y) {     # saves the entered matrix.
-                x <<- y
+                x <<- y     # the <<- superassignment operator saves the variable to the global environment, for use in the function below.
                 m <<- NULL
         }
         
@@ -69,6 +74,4 @@ cacheSolve <- function(x, ...) {
                 end <- Sys.time()     # stops the time clock.
                 message("Execution time is ", end - start, " seconds.")     # reports execustion time of calculating the invere of the matrix.
         }
-}
-
 }
